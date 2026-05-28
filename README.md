@@ -82,6 +82,7 @@ To maintain clean code and separate the conversion logic cleanly, this project r
 - [Client-Side Form Handling with JavaScript – Explained with Example Code](https://www.freecodecamp.org/news/form-validation-in-javascript/#let-s-see-an-example-registration-form)
 - [How to work with Form Elements in TypeScript ?](https://www.geeksforgeeks.org/typescript/how-to-work-with-form-elements-in-typescript/)
 - [How can I trigger an onchange event manually in javascript?](https://www.tutorialspoint.com/article/how-can-i-trigger-an-onchange-event-manually-in-javascript)
+- [Curso JavaScript: 151. SPA: Enrutamiento (Router)](https://youtu.be/nC9WK4jFXls?si=PnFI5REcmzAVytAI)
 
 
 ### Linter & Formatting Setup

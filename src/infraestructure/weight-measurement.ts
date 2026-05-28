@@ -54,3 +54,11 @@ export class Pound extends Unit {
 		oz: (value: number) => value * 16,
 	};
 }
+
+export const weightMeasurement = [
+	new Milligram(),
+	new Gram(),
+	new Kilogram(),
+	new Ounce(),
+	new Pound(),
+];

@@ -26,3 +26,9 @@ export class Kelvin extends Unit {
 		F: (value: number) => ((value - 273.15) * 9) / 5 + 32,
 	};
 }
+
+export const temperatureMeasurement = [
+	new Celsius(),
+	new Fahrenheit(),
+	new Kelvin(),
+];

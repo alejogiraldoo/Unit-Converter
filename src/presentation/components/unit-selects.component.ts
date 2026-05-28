@@ -2,15 +2,20 @@ import { UnitSelectsService } from '../services';
 import { Component } from './component';
 import { SelectComponent } from './select.component';
 
+interface IOnChangeArgs {
+	fromUnit: string;
+	toUnit: string;
+}
+
 interface IUnitSelectsConfig {
 	container: Element;
-	onChange: (arg: { fromUnit: string; toUnit: string }) => void;
+	onChange: (arg: IOnChangeArgs) => void;
 	unitSelectsService: UnitSelectsService;
 }
 
 export class UnitSelectsComponent extends Component {
 	protected $container: Element;
-	protected onChange: (arg: { fromUnit: string; toUnit: string }) => void;
+	protected onChange: (arg: IOnChangeArgs) => void;
 
 	protected unitSelectsService: UnitSelectsService;
 	protected fromUnit!: string;
