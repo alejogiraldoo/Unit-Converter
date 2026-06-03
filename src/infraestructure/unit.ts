@@ -1,6 +1,6 @@
 type ConverterFunction = (value: number) => number;
 
-export type UnitOfMeasurement = Unit[];
+export type UnitsOfMeasurement = Unit[];
 
 export abstract class Unit {
 	protected abstract unitName: string;

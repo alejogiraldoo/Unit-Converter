@@ -52,10 +52,12 @@ export class SelectComponent extends Component {
 			);
 
 		this.$select.id = id;
+		this.$select.classList.add('user_field__select');
 		this.loadSelectOptions($d, options);
 		this.$select.dispatchEvent(this.onChangeEvent);
 
 		const $div = $d.createElement('div');
+		$div.classList.add('user_field');
 		$div.append($label, this.$select);
 
 		this.$container.appendChild($div);

@@ -56,6 +56,7 @@ export class UnitConverterComponent extends Component {
 				});
 			},
 			unitSelectsService: this.unitSelectsService,
+			measurement: this.unitService.getMeasurement,
 		}).render();
 	}
 
@@ -69,14 +70,18 @@ export class UnitConverterComponent extends Component {
 
 		const $d = document;
 		const $div = $d.createElement('div') as HTMLDivElement;
+		$div.classList.add('result_container');
 
 		const $description = $d.createElement('p') as HTMLParagraphElement;
 		$description.textContent = 'Result of your calculation';
+		$description.classList.add('result_container__description');
 		const $result = $d.createElement('p') as HTMLParagraphElement;
 		$result.textContent = `${valueToConvert} ${fromUnitSelected} = ${valueConverted}  ${toUnitSelected}`;
+		$result.classList.add('result_container__result');
 
 		const $resetButton = $d.createElement('button') as HTMLButtonElement;
 		$resetButton.textContent = 'Reset';
+		$resetButton.classList.add('result_container__reset_button');
 
 		$resetButton.addEventListener('click', () => {
 			this.$container.innerHTML = '';

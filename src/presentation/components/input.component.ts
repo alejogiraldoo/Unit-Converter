@@ -31,6 +31,7 @@ export class InputComponent extends Component {
 		const $d = document;
 
 		const $label = $d.createElement('label');
+		$label.classList.add('user_field__label');
 		$label.textContent = label;
 		$label.htmlFor = id;
 
@@ -40,11 +41,13 @@ export class InputComponent extends Component {
 			);
 
 		this.$input.id = id;
+		this.$input.classList.add('user_field__input');
 		this.$input.type = 'number';
 		this.$input.required = true;
 		this.$input.min = String(min);
 
 		const $div = $d.createElement('div');
+		$div.classList.add('user_field');
 		$div.append($label, this.$input);
 
 		this.$container.appendChild($div);

@@ -12,18 +12,18 @@ interface IRoute {
 	component: ($container: Element) => Component;
 }
 
-type IRoutes = IRoute[];
+export type IRoutes = IRoute[];
 
 const unitConverter = new UnitConverter();
 
-const routes: IRoutes = [
+export const routes: IRoutes = [
 	{
 		name: 'length',
 		component: ($container: Element) =>
 			new UnitConverterComponent({
 				container: $container,
 				unitConverter,
-				unitService: new UnitService(lengthMeasurement),
+				unitService: new UnitService('length', lengthMeasurement),
 				unitSelectsService: new UnitSelectsService(lengthMeasurement),
 			}),
 	},
@@ -33,7 +33,7 @@ const routes: IRoutes = [
 			new UnitConverterComponent({
 				container: $container,
 				unitConverter,
-				unitService: new UnitService(weightMeasurement),
+				unitService: new UnitService('weight', weightMeasurement),
 				unitSelectsService: new UnitSelectsService(weightMeasurement),
 			}),
 	},
@@ -43,7 +43,7 @@ const routes: IRoutes = [
 			new UnitConverterComponent({
 				container: $container,
 				unitConverter,
-				unitService: new UnitService(temperatureMeasurement),
+				unitService: new UnitService('temperature', temperatureMeasurement),
 				unitSelectsService: new UnitSelectsService(temperatureMeasurement),
 			}),
 	},
@@ -65,11 +65,12 @@ export class Router {
 
 		let hash = location.hash;
 
-		if (!hash || hash === '#/') hash = '#/length';
-
 		hash = hash.slice(2);
 		const route = this.routes.find(({ name }) => name === hash);
-		if (!route) throw new Error('Not route found');
+		if (!route) {
+			location.hash = '#/length';
+			throw new Error('Not route found');
+		}
 
 		const component = route.component(this.$container);
 		component.render();

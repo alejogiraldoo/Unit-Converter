@@ -1,4 +1,4 @@
-import { Router } from './presentation';
+import { NavigationComponent, Router } from './presentation';
 
 import './style.css';
 
@@ -7,6 +7,13 @@ import './style.css';
 })();
 
 function main() {
-	const $router = document.getElementById('router') as Element;
+	const $d = document;
+
+	const $main = $d.querySelector('main')!;
+	new NavigationComponent($main).render();
+
+	const $router = $d.createElement('section');
+	$router.classList.add('container');
+	$main.appendChild($router);
 	new Router($router);
 }

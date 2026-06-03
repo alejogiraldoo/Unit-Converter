@@ -1,17 +1,17 @@
-import type { UnitOfMeasurement } from '../../infraestructure';
+import type { UnitsOfMeasurement } from '../../infraestructure';
 import type { ISelectOptions } from '../components';
 
 export class UnitSelectsService {
-	private unitOfMeasurement: UnitOfMeasurement;
+	private unitsOfMeasurement: UnitsOfMeasurement;
 	private unitsInfo: ISelectOptions[];
 
-	constructor(unitOfMeasurement: UnitOfMeasurement) {
-		this.unitOfMeasurement = unitOfMeasurement;
+	constructor(unitOfMeasurement: UnitsOfMeasurement) {
+		this.unitsOfMeasurement = unitOfMeasurement;
 		this.unitsInfo = this.getUnitsInfo;
 	}
 
 	private get getUnitsInfo() {
-		return this.unitOfMeasurement?.map((unit) => ({
+		return this.unitsOfMeasurement?.map((unit) => ({
 			value: unit.getAbbr,
 			text: unit.getName,
 		}));

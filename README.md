@@ -6,7 +6,7 @@ This project is a solution to the [Unit Converter](https://roadmap.sh/projects/u
 
 ## Features
 
-- **Server-Side Processing**: The application handles form submissions and calculates conversions on the backend, returning the processed data to the view (`target="_self"`).
+- **Server-Side Processing**: The application handles form submissions and calculates conversions on the backend, returning the processed data to the view.
 - **Vite-Powered Bundling**: Extremely fast development environment and optimized production builds.
 - **Multiple Unit Categories**:
   - **Length**: millimeter, centimeter, meter, kilometer, inch, foot, yard, mile.
@@ -29,7 +29,7 @@ Follow these steps to run the project locally:
 
 1. **Clone the repository:**
 ```bash
-git clone [https://github.com/YOUR_USERNAME/unit-converter.git](https://github.com/YOUR_USERNAME/unit-converter.git)
+git clone https://github.com/alejogiraldoo/Unit-Converter.git
 cd unit-converter
 ```
 
@@ -78,11 +78,13 @@ To maintain clean code and separate the conversion logic cleanly, this project r
 - [Template Method - Refactoring Guru](https://refactoring.guru/design-patterns/template-method)
 
 ### HTML & Javascript
-- [HTML <form> target Attribute](https://www.geeksforgeeks.org/html/html-form-target-attribute/)
+- [HTML "<form>" target Attribute](https://www.geeksforgeeks.org/html/html-form-target-attribute/)
 - [Client-Side Form Handling with JavaScript – Explained with Example Code](https://www.freecodecamp.org/news/form-validation-in-javascript/#let-s-see-an-example-registration-form)
 - [How to work with Form Elements in TypeScript ?](https://www.geeksforgeeks.org/typescript/how-to-work-with-form-elements-in-typescript/)
 - [How can I trigger an onchange event manually in javascript?](https://www.tutorialspoint.com/article/how-can-i-trigger-an-onchange-event-manually-in-javascript)
 - [Curso JavaScript: 151. SPA: Enrutamiento (Router)](https://youtu.be/nC9WK4jFXls?si=PnFI5REcmzAVytAI)
+- [Ripple Effect Button with CSS and Vanilla Javascript for BEGINNERS](https://youtu.be/WFH-TMp6l_c?si=5usejqWyfD_Wh8XO)
+- [How to add padding to the default arrow in a select dropdown menu?](https://stackoverflow.com/questions/65120873/how-to-add-padding-to-the-default-arrow-in-a-select-dropdown-menu)
 
 
 ### Linter & Formatting Setup

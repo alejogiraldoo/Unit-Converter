@@ -1,5 +1,6 @@
 export * from './component';
 export * from './input.component';
+export * from './nav.component';
 export * from './select.component';
 export * from './unit-converter-form.component';
 export * from './unit-converter.component';
