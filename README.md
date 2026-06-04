@@ -96,3 +96,6 @@ To maintain clean code and separate the conversion logic cleanly, this project r
 - [Typescript Project from Scratch | Complete Tutorial for Beginners](https://youtu.be/61v23Ce5SXA?si=OiZNe39HMikOdc52)
 - [Husky, ESLint & Prettier Setup](https://youtu.be/sKT4YvXc1SY?si=qryPVV8IeG6Lqy6T)
 - [How to Set Up ESLint in 2026! (Beginner's Guide)](https://youtu.be/eieTlMwCwWU?si=FFu0ilJ8NpykAkY-)
+
+### Deploy
+[Static Deploy](https://vite.dev/guide/static-deploy)
