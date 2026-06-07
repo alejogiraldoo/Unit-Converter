@@ -1,4 +1,5 @@
 import { Unit } from './unit.ts';
+import { Validator } from './validator.ts';
 
 export class Milligram extends Unit {
 	protected unitName = 'Milligram';
@@ -9,6 +10,12 @@ export class Milligram extends Unit {
 		oz: (value: number) => value / 28349.5,
 		lb: (value: number) => value / 453592,
 	};
+	protected rules = [
+		new Validator(
+			(value: number) => value >= 0,
+			'Milligrams must be 0 or greater',
+		),
+	];
 }
 
 export class Gram extends Unit {
@@ -20,6 +27,9 @@ export class Gram extends Unit {
 		oz: (value: number) => value / 28.3495,
 		lb: (value: number) => value / 453.592,
 	};
+	protected rules = [
+		new Validator((value: number) => value >= 0, 'Grams must be 0 or greater'),
+	];
 }
 
 export class Kilogram extends Unit {
@@ -31,6 +41,12 @@ export class Kilogram extends Unit {
 		oz: (value: number) => value * 35.274,
 		lb: (value: number) => value * 2.20462,
 	};
+	protected rules = [
+		new Validator(
+			(value: number) => value >= 0,
+			'Kilograms must be 0 or greater',
+		),
+	];
 }
 
 export class Ounce extends Unit {
@@ -42,6 +58,9 @@ export class Ounce extends Unit {
 		kg: (value: number) => value / 35.274,
 		lb: (value: number) => value / 16,
 	};
+	protected rules = [
+		new Validator((value: number) => value >= 0, 'Ounces must be 0 or greater'),
+	];
 }
 
 export class Pound extends Unit {
@@ -53,6 +72,9 @@ export class Pound extends Unit {
 		kg: (value: number) => value / 2.20462,
 		oz: (value: number) => value * 16,
 	};
+	protected rules = [
+		new Validator((value: number) => value >= 0, 'Pounds must be 0 or greater'),
+	];
 }
 
 export const weightMeasurement = [

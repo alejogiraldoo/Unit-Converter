@@ -1,11 +1,12 @@
-import { UnitSelectsService } from '../services';
+import type { Unit } from '../../infraestructure';
+import { UnitSelectsService, UnitService } from '../services';
 import { Component } from './component';
 import { InputComponent } from './input.component';
 import { UnitSelectsComponent } from './unit-selects.component';
 
 interface IOnChangeArgs {
 	valueToConvert: number;
-	fromUnitSelected: string;
+	fromUnitSelected: Unit;
 	toUnitSelected: string;
 }
 
@@ -13,18 +14,20 @@ interface IConverterFormConfig {
 	container: Element;
 	onChange: (arg: IOnChangeArgs) => void;
 	unitSelectsService: UnitSelectsService;
-	measurement: string;
+	unitService: UnitService;
 }
 
 export class UnitConverterFormComponent extends Component {
 	protected $container: Element;
 	protected onChange: (arg: IOnChangeArgs) => void;
 	protected unitSelectsService: UnitSelectsService;
-	protected measurement: string;
+	protected unitService: UnitService;
+
+	protected inputComponent!: InputComponent;
 	protected $form = document.createElement('form') as HTMLFormElement;
 
 	protected valueToConvert = 0;
-	protected fromUnitSelected = '';
+	protected fromUnitSelected!: Unit;
 	protected toUnitSelected = '';
 
 	constructor(config: IConverterFormConfig) {
@@ -32,7 +35,7 @@ export class UnitConverterFormComponent extends Component {
 		this.$container = config.container;
 		this.onChange = config.onChange;
 		this.unitSelectsService = config.unitSelectsService;
-		this.measurement = config.measurement;
+		this.unitService = config.unitService;
 
 		this.$form.classList.add('unit_converter_form');
 
@@ -59,6 +62,8 @@ export class UnitConverterFormComponent extends Component {
 	private onSubmit() {
 		this.$form.addEventListener('submit', (e) => {
 			e.preventDefault();
+			if (!this.inputComponent.isStatusValid()) return;
+
 			this.onChange({
 				valueToConvert: this.valueToConvert,
 				fromUnitSelected: this.fromUnitSelected,
@@ -68,15 +73,15 @@ export class UnitConverterFormComponent extends Component {
 	}
 
 	private createInput(container: Element) {
-		return new InputComponent({
+		this.inputComponent = new InputComponent({
 			container,
 			props: {
-				label: `Enter the ${this.measurement} to convert`,
+				label: `Enter the ${this.unitService.getMeasurement} to convert`,
 				id: 'valueToConvert',
-				min: 1,
 			},
 			onChange: (value: number) => (this.valueToConvert = value),
-		}).render();
+		});
+		this.inputComponent.render();
 	}
 
 	private createSelects(container: Element) {
@@ -84,8 +89,10 @@ export class UnitConverterFormComponent extends Component {
 			container,
 			unitSelectsService: this.unitSelectsService,
 			onChange: ({ fromUnit, toUnit }) => {
-				this.fromUnitSelected = fromUnit;
+				this.fromUnitSelected = this.unitService.getUnitInstance(fromUnit);
 				this.toUnitSelected = toUnit;
+
+				this.inputComponent.setValidators = this.fromUnitSelected.getRules;
 			},
 		}).render();
 	}

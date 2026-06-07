@@ -1,4 +1,5 @@
 import { Unit } from './unit.ts';
+import { Validator } from './validator.ts';
 
 export class Millimeter extends Unit {
 	protected unitName = 'Millimeter';
@@ -12,6 +13,12 @@ export class Millimeter extends Unit {
 		yd: (value: number) => value / 914.4,
 		mi: (value: number) => value / 1609344,
 	};
+	protected rules = [
+		new Validator(
+			(value: number) => value >= 0,
+			'Millimeters must be 0 or greater',
+		),
+	];
 }
 
 export class Centimeter extends Unit {
@@ -26,6 +33,12 @@ export class Centimeter extends Unit {
 		yd: (value: number) => value / 91.44,
 		mi: (value: number) => value / 160934.4,
 	};
+	protected rules = [
+		new Validator(
+			(value: number) => value >= 0,
+			'Centimeters must be 0 or greater',
+		),
+	];
 }
 
 export class Meter extends Unit {
@@ -40,6 +53,9 @@ export class Meter extends Unit {
 		yd: (value: number) => value * 1.09361,
 		mi: (value: number) => value / 1609.344,
 	};
+	protected rules = [
+		new Validator((value: number) => value >= 0, 'Meters must be 0 or greater'),
+	];
 }
 
 export class Kilometer extends Unit {
@@ -54,6 +70,12 @@ export class Kilometer extends Unit {
 		yd: (value: number) => value * 1093.61,
 		mi: (value: number) => value / 1.60934,
 	};
+	protected rules = [
+		new Validator(
+			(value: number) => value >= 0,
+			'Kilometers must be 0 or greater',
+		),
+	];
 }
 
 export class Inch extends Unit {
@@ -68,6 +90,9 @@ export class Inch extends Unit {
 		yd: (value: number) => value / 36,
 		mi: (value: number) => value / 63360,
 	};
+	protected rules = [
+		new Validator((value: number) => value >= 0, 'Inches must be 0 or greater'),
+	];
 }
 
 export class Foot extends Unit {
@@ -82,6 +107,9 @@ export class Foot extends Unit {
 		yd: (value: number) => value / 3,
 		mi: (value: number) => value / 5280,
 	};
+	protected rules = [
+		new Validator((value: number) => value >= 0, 'Feet must be 0 or greater'),
+	];
 }
 
 export class Yard extends Unit {
@@ -96,6 +124,9 @@ export class Yard extends Unit {
 		ft: (value: number) => value * 3,
 		mi: (value: number) => value / 1760,
 	};
+	protected rules = [
+		new Validator((value: number) => value >= 0, 'Yards must be 0 or greater'),
+	];
 }
 
 export class Mile extends Unit {
@@ -110,6 +141,9 @@ export class Mile extends Unit {
 		ft: (value: number) => value * 5280,
 		yd: (value: number) => value * 1760,
 	};
+	protected rules = [
+		new Validator((value: number) => value >= 0, 'Miles must be 0 or greater'),
+	];
 }
 
 export const lengthMeasurement = [

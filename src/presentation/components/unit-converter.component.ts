@@ -40,8 +40,7 @@ export class UnitConverterComponent extends Component {
 		new UnitConverterFormComponent({
 			container: this.$container,
 			onChange: ({ valueToConvert, fromUnitSelected, toUnitSelected }) => {
-				const unitInstance = this.unitService.getUnitInstance(fromUnitSelected);
-				this.unitConverter.setFromUnit(unitInstance);
+				this.unitConverter.setFromUnit(fromUnitSelected);
 
 				const valueConverted = this.unitConverter.convert(
 					valueToConvert,
@@ -51,12 +50,12 @@ export class UnitConverterComponent extends Component {
 				this.createResultContainer({
 					valueToConvert,
 					valueConverted,
-					fromUnitSelected,
+					fromUnitSelected: fromUnitSelected.getAbbr,
 					toUnitSelected,
 				});
 			},
 			unitSelectsService: this.unitSelectsService,
-			measurement: this.unitService.getMeasurement,
+			unitService: this.unitService,
 		}).render();
 	}
 

@@ -81,6 +81,11 @@ main, .unit_converter_form__convert_button, .result_container__reset_button {
     padding: 8px;
 }
 
+.user_field__error {
+    font-size: 14px;
+    color: #ff0000;
+}
+
 select {
   -webkit-appearance: none;
   appearance: none;
