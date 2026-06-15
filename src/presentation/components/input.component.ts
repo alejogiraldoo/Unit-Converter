@@ -48,6 +48,7 @@ export class InputComponent extends Component {
 		this.$input.classList.add('user_field__input');
 		this.$input.type = 'number';
 		this.$input.required = true;
+		this.$input.step = 'any';
 
 		this.$errorMessage.classList.add('user_field__error');
 		this.$errorMessage.style.display = 'none';
